@@ -1,0 +1,18 @@
+body {
+    width: 300px;
+    height: 300px;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(90deg, rgba(34, 193, 195, 1) 0%, rgb(15, 137, 207) 100%);
+
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    margin: auto 10px;
+    font-size: 22px;
+    color: #202020;
+    border-radius: 12px;
+    border: 2px solid #fd1d1d;
+    padding: 10px;
+}
