@@ -1,0 +1,39 @@
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> ds = new ArrayList<>();
+        int index = 0, sum = 0;
+        generateCombination(index, candidates, target, sum, ds, ans);
+        
+        return ans;
+    }
+    
+    
+     public void generateCombination(int index, int[] arr, int tar, int sum, 
+                                    List<Integer> ds, List<List<Integer>> ans){
+        
+        if(index == arr.length){
+            if(sum == tar)
+                ans.add(new ArrayList<>(ds));
+            
+            return;
+        }
+        
+        // picking the element
+        if(sum <= tar){
+        ds.add(arr[index]);
+        sum += arr[index];
+        generateCombination(index, arr, tar, sum, ds, ans);
+        
+        // removing added elements
+        ds.remove(ds.size()-1);
+            
+        // decreasing the sum
+        sum = sum - arr[index];
+        }
+        
+        // not picking the element
+        generateCombination(index+1, arr, tar, sum, ds, ans);
+        
+    }
+}
